@@ -248,3 +248,83 @@ set expandtab # Замена табуляции пробелами
 Обучающие карты расположения команд в картинках. Взято отсюда:
 http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
+Решение проблем:
+Простое решение проблемы командного режима в русской раскладке, положить в файл ~/.vimrc с содержимым в одну строку:
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;
+ABCDEFGHIJKLMNOPQRSTUVWXYZ:, фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+Однако я заметил единственный минус — в правом нижнем углу перестают отображаться вводимые символы в режиме команд.
+
+* * *
+
+Вот эта пара строк сильно экономит время на копание в .vimrc
+“ ## Edit .vimrc ##
+map ,v :vsp $MYVIMRC<CR>
+map ,V :source $MYVIMRC<CR>
+
+Первая маппит на ,v открытие .vimrc в вертикальном окошке, а вторая просит VIM пересчитать файл.
+
+* * *
+
+О разнице, какой клавишей выходить в командный режим: Ctlr-C просто переходит в normal mode. Если на выход из insert mode 
+какими нибудь плагинами навешаны какие-нибудь хуки, то при нажатии 
+Ctrl-C vim их проигнорирует, а при нажатии Esc или Ctrl-[ запустит. (й)
+
+* * *
+
+Q (shift+q) — не режим ввода команд. Это переход в устаревший режим Ex, поддерживаемый только для совместимости. Пользоваться им не стоит. Для возврата в обычный режим наберите „visual“.
+
+* * *
+
+
+Список использованной и рекомендуемой литературы:
+Статьи на хабре:
+https://habrahabr.ru/hub/vim/
+
+Почему, ну почему, эти #?@! придурки используют vi? (отличная статья! А комменты просто жгут)
+https://habrahabr.ru/post/307084/
+
+Vim и кириллица: парочка приёмов
+https://habrahabr.ru/post/98393/
+
+Аж целую книгу запилили по этому vim, я удивляюсь. Нашёл на файлопомойке тут:
+http://mirrors.pdp-11.ru/_books/desktop%20soft/vim/
+
+Прямая ссылка на книгу:
+O'Reilly — Learning the vi and Vim Editors 7th Edition (перевод).pdf
+
+Книга «Просто о Vim» («A Byte of Vim») русский перевод.
+Скачать в формате .odt или .pdf
+
+Vimtouch под Android. Если готовый в googleplay:
+https://github.com/momodalo/vimtouch
+
+100 команд vim, которые должен знать каждый
+http://scabere.livejournal.com/62886.html
+
+Окна и буферы — Навигация 
+https://habrahabr.ru/post/28572/
+
+Vim Golf — Задачи и решения по vim
+http://www.vimgolf.com/
+
+Много приёмов работы с vim 
+http://najomi.org/vim
+
+Настраиваем Vim под Python
+https://habrahabr.ru/post/74128/
+
+VIM как IDE для разработки на Python
+https://habrahabr.ru/post/224979/
+
+Vim как IDE для веб-разработки
+https://habrahabr.ru/post/53435/
+
+Окна и буферы
+https://habrahabr.ru/post/28572
+
+Многооконный режим редактирования файлов в Vim
+https://www.opennet.ru/tips/1714_vip_edit_text.shtml
+
+Хороший, почти как vimtutor, цикл видео уроков по vim.
+https://www.youtube.com/playlist?list=PLcjongJGYetkY4RFSVftH43F91vgzqB7U
